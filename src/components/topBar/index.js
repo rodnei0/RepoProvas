@@ -1,13 +1,23 @@
 
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import logoImage from '../../assets/images/logo.png';
 import logoutImage from '../../assets/images/logout.png';
+import useAuth from '../../hooks/useAuth';
 
 export function TopBar({hideLogout}) {
+    const { logout } = useAuth();
+	const navigate = useNavigate();
+
+    function makeLogout() {
+        logout();
+        navigate('/');
+    }
+
     return (
         <Top hideLogout={hideLogout}>
             <img src={logoImage} alt='logo' />
-            <div>
+            <div onClick={makeLogout}>
                 <img src={logoutImage} alt='logout'/>
             </div>
         </Top>

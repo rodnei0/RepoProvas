@@ -32,7 +32,7 @@ function SignUp() {
 			await authApi.createUser(user);
 			navigation('/');
 		} catch (error) {
-			alert("Erro, tente novamente");
+			alert(error.response.data);
 		}
 	}
 
