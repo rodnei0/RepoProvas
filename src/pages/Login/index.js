@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import authApi from '../../services/api.auth';
 
 import { Container, Form, Input, Button, StyledLink } from '../../components/FormComponents/index';
@@ -11,8 +11,12 @@ function Login() {
 		email: '',
 		password: '',
 	});
-	const { login } = useAuth();
-	const navigation = useNavigate();
+	const { auth: { token }, login } = useAuth();
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		if (token) navigate('/tests')
+	}, [token, navigate])
 
 	function handleChange({ target }) {
 		setFormData({ ...formData, [target.name]: target.value });
@@ -26,10 +30,9 @@ function Login() {
 		try {
 			const { data } = await authApi.login(user);
 			login(data);
-			navigation('/home');
+			navigate('/discipline');
 		} catch (error) {
-			console.log(error);
-			alert("Erro, tente novamente");
+			alert(error.response.data);
 		}
 	}
 
