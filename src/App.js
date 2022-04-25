@@ -7,7 +7,7 @@ import GlobalStyle from './styles/GlobalStyle';
 
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-import Discipline from './pages/Discipline';
+import Tests from './pages/Tests';
 
 function App() {
 	return (
@@ -18,7 +18,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Login />} />
 					<Route path="/sign-up" element={<SignUp />} />
-					<Route path="/discipline" element={<Discipline />} />
+					<Route path="/tests" element={<Tests />} />
 				</Routes>
 			</BrowserRouter>
 		</AuthProvider>

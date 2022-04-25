@@ -15,7 +15,7 @@ function Login() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (token) navigate('/discipline')
+		if (token) navigate('/tests')
 	}, [token, navigate])
 
 	function handleChange({ target }) {

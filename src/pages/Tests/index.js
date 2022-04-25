@@ -2,7 +2,7 @@ import React from 'react';
 import { Container  } from '../../components/FormComponents/index';
 import TopBar from '../../components/topBar/index.js';
 
-function Discipline() {
+function Tests() {
 
 	return (
 		<Container>
@@ -11,4 +11,4 @@ function Discipline() {
 	);
 }
 
-export default Discipline;
+export default Tests;
